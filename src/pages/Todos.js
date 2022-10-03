@@ -6,12 +6,14 @@ import TodosList from '../components/TodosList';
 const Todos = () => {
   const [todos, setTodos] = useState([]);
 
+  const url = 'https://node-api-example-domm.herokuapp.com';
+
   useEffect(() => {
     async function getTodos() {
       try {
         const {
           data: { tasks },
-        } = await axios.get('/api/v1/tasks');
+        } = await axios.get(`${url}/api/v1/tasks`);
 
         setTodos(tasks);
 
